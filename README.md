@@ -1,5 +1,4 @@
 # 🗳️ LivePoll — Stellar Testnet dApp
-### Stellar Blue Belt Level 2 Project
 
 A real-time, on-chain voting app built with **Soroban smart contracts** and **StellarWalletsKit**. One question. Two options. Every vote recorded immutably on the Stellar Testnet.
 
@@ -132,9 +131,20 @@ A real-time, one-question polling app powered by a Soroban smart contract on the
 
 ## 📸 Screenshots
 
-| Poll Open | Vote Confirmed |
-|-----------|---------------|
-| Results update live every 5s | ✅ Confirmed badge with explorer link |
+1) CONNECTING WALLET BEFORE VOTE
+<img width="945" height="530" alt="CONNECTING WALLET BEFORE VOTE" src="https://github.com/user-attachments/assets/51bd8ff7-4cc0-4e41-8e42-f044906cd815" />
+
+2) YOUR VOTING RIGHT
+<img width="872" height="422" alt="YOUR VOTING RIGHT" src="https://github.com/user-attachments/assets/35bf2ed6-56d9-47a2-9ad1-b8bc2f277dc8" />
+
+3) CONFIRMATION OF YOUR VOTE
+<img width="868" height="457" alt="CONFIRMATION OF YOUR VOTE" src="https://github.com/user-attachments/assets/6dd18500-aad6-4c75-a41d-03f201b5f056" />
+
+4) CONGRATS YOU HAVE VOTED
+<img width="592" height="380" alt="CONGRATS YOU HAVE VOTED" src="https://github.com/user-attachments/assets/a9e52e7e-db9f-4e46-9f61-5ecbbed85639" />
+
+5) YOU CAN SEE YOUR VOTE ON BLOCKCHAIN
+<img width="902" height="440" alt="YOU CAN SEE YOUR VOTE ON BLOCKCHAIN" src="https://github.com/user-attachments/assets/f1a18bb6-1581-4c5b-baa4-59852fca329d" />
 
 ---
 
@@ -307,9 +317,3 @@ stellar contract invoke \
 - [x] Minimum 2+ meaningful commits
 - [x] Real-time event synchronization (polling every 5s)
 - [x] Multi-wallet support via StellarWalletsKit
-
----
-
-## 👤 Author
-
-Built for the Stellar Belt System — Level 2: Yellow Belt
