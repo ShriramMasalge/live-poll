@@ -123,12 +123,6 @@ A real-time, one-question polling app powered by a Soroban smart contract on the
 
 ---
 
-## 🚀 Live Demo
-
-> Run locally — see setup instructions below.
-
----
-
 ## 📸 Screenshots
 
 
