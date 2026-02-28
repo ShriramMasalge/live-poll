@@ -1,9 +1,3 @@
-// src/hooks/useWallet.js
-// ─────────────────────────────────────────────────────────────────────────────
-// Wallet connection via @creit.tech/stellar-wallets-kit
-// Handles: not found, rejected, and insufficient balance errors
-// ─────────────────────────────────────────────────────────────────────────────
-
 import { useState, useCallback } from 'react'
 import {
   StellarWalletsKit,
@@ -14,7 +8,7 @@ import {
   XBULL_ID,
 } from '@creit.tech/stellar-wallets-kit'
 
-// ── Error classification ──────────────────────────────────────────────────────
+//  Error classification 
 export const WalletErrorType = {
   NOT_FOUND:           'NOT_FOUND',       // Extension not installed
   REJECTED:            'REJECTED',        // User denied connection/signing
@@ -57,7 +51,7 @@ function classifyError(err) {
   return WalletErrorType.UNKNOWN
 }
 
-// ── Error messages for the UI ─────────────────────────────────────────────────
+// Error messages for the UI 
 export const ERROR_MESSAGES = {
   [WalletErrorType.NOT_FOUND]:
     'Wallet extension not found. Please install Freighter, LOBSTR, or xBull.',
@@ -71,7 +65,7 @@ export const ERROR_MESSAGES = {
     'An unexpected error occurred. Please try again.',
 }
 
-// ── Singleton kit ─────────────────────────────────────────────────────────────
+// Singleton kit 
 let _kit = null
 function getKit() {
   if (!_kit) {
@@ -84,7 +78,6 @@ function getKit() {
   return _kit
 }
 
-// ── Hook ──────────────────────────────────────────────────────────────────────
 export function useWallet() {
   const [address,  setAddress]  = useState(null)
   const [walletId, setWalletId] = useState(null)
@@ -93,7 +86,7 @@ export function useWallet() {
 
   const clearError = useCallback(() => setError(null), [])
 
-  // ── Connect via modal ──────────────────────────────────────────────────────
+  // Connect via modal 
   const connect = useCallback(async () => {
     setLoading(true)
     setError(null)
@@ -121,7 +114,7 @@ export function useWallet() {
     }
   }, [])
 
-  // ── Sign a transaction ─────────────────────────────────────────────────────
+  //  Sign a transaction 
   const signTx = useCallback(async (tx) => {
     if (!address) throw new Error('Not connected')
     setLoading(true)
@@ -143,7 +136,7 @@ export function useWallet() {
     }
   }, [address])
 
-  // ── Disconnect ─────────────────────────────────────────────────────────────
+  // Disconnect 
   const disconnect = useCallback(() => {
     setAddress(null)
     setWalletId(null)
