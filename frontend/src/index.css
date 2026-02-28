@@ -1,11 +1,5 @@
-/* index.css — Live Poll · Stellar Testnet
-   Aesthetic: Editorial brutalism meets data dashboard
-   Dark, high-contrast, monochromatic with electric accent
-*/
-
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap');
 
-/* ── Reset & Root ─────────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -46,7 +40,6 @@ body {
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-/* ── Background effects ───────────────────────────────────────────────────── */
 .app {
   min-height: 100vh;
   position: relative;
@@ -77,7 +70,6 @@ a:hover { text-decoration: underline; }
   z-index: 0;
 }
 
-/* ── Header ───────────────────────────────────────────────────────────────── */
 .header {
   position: relative;
   z-index: 10;
@@ -190,7 +182,6 @@ a:hover { text-decoration: underline; }
 }
 .wallet-disconnect:hover { color: var(--danger); }
 
-/* ── Main layout ──────────────────────────────────────────────────────────── */
 .main {
   position: relative;
   z-index: 1;
@@ -205,7 +196,6 @@ a:hover { text-decoration: underline; }
   width: 100%;
 }
 
-/* ── Error Banner ─────────────────────────────────────────────────────────── */
 .error-banner {
   width: 100%;
   display: flex;
@@ -236,7 +226,6 @@ a:hover { text-decoration: underline; }
   line-height: 1;
 }
 
-/* ── TX Badge ─────────────────────────────────────────────────────────────── */
 .tx-badge {
   display: flex;
   align-items: center;
@@ -266,7 +255,6 @@ a:hover { text-decoration: underline; }
 .tx-link { margin-left: 8px; color: inherit; opacity: .7; }
 .tx-link:hover { opacity: 1; }
 
-/* ── Poll Card ────────────────────────────────────────────────────────────── */
 .poll-card {
   width: 100%;
   background: var(--surface);
@@ -316,7 +304,6 @@ a:hover { text-decoration: underline; }
   color: var(--text);
 }
 
-/* ── Options ──────────────────────────────────────────────────────────────── */
 .options {
   display: flex;
   flex-direction: column;
@@ -332,7 +319,6 @@ a:hover { text-decoration: underline; }
   padding: 6px 0;
 }
 
-/* ── Vote Card ────────────────────────────────────────────────────────────── */
 .vote-card {
   background: #161616;
   border: 1px solid var(--border);
@@ -425,7 +411,6 @@ a:hover { text-decoration: underline; }
   letter-spacing: 1px;
 }
 
-/* ── Status message ───────────────────────────────────────────────────────── */
 .status-msg {
   font-size: 13px;
   color: var(--muted);
@@ -436,7 +421,6 @@ a:hover { text-decoration: underline; }
   padding-top: 20px;
 }
 
-/* ── Footer ───────────────────────────────────────────────────────────────── */
 .footer {
   width: 100%;
   display: flex;
@@ -466,7 +450,6 @@ a:hover { text-decoration: underline; }
   font-size: 12px;
 }
 
-/* ── Responsive ───────────────────────────────────────────────────────────── */
 @media (max-width: 600px) {
   .header { padding: 16px 20px; }
   .poll-card { padding: 24px 20px; }
