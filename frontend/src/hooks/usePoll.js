@@ -1,8 +1,4 @@
-// src/hooks/usePoll.js
-// ─────────────────────────────────────────────────────────────────────────────
 // Poll state, voting, real-time sync, tx tracking
-// ─────────────────────────────────────────────────────────────────────────────
-
 import { useState, useEffect, useCallback, useRef } from 'react'
 import {
   fetchPollData,
@@ -29,7 +25,7 @@ export function usePoll(address, signTx) {
   const stopPollingRef              = useRef(null)
   const txHashRef                   = useRef(null)
 
-  // ── Initial data load ──────────────────────────────────────────────────────
+  // Initial data load 
   const refresh = useCallback(async () => {
     try {
       const data = await fetchPollData()
@@ -41,13 +37,13 @@ export function usePoll(address, signTx) {
     }
   }, [])
 
-  // ── Check if connected user has voted ──────────────────────────────────────
+  // Check if connected user has voted 
   useEffect(() => {
     if (!address) return
     fetchHasVoted(address).then(setHasVoted)
   }, [address])
 
-  // ── Start polling for live updates ─────────────────────────────────────────
+  // Start polling for live updates 
   useEffect(() => {
     refresh()
 
@@ -61,7 +57,7 @@ export function usePoll(address, signTx) {
     return () => stop()
   }, [])
 
-  // ── Cast a vote ────────────────────────────────────────────────────────────
+  //  Cast a vote 
   const vote = useCallback(async (option) => {
     if (!address || !signTx) return
     setVoteError(null)
@@ -69,13 +65,10 @@ export function usePoll(address, signTx) {
     txHashRef.current = null
 
     try {
-      // 1. Build
       const tx = await buildVoteTx(address, option)
 
-      // 2. Sign
       const signedXdr = await signTx(tx)
 
-      // 3. Submit + wait
       await submitAndWait(signedXdr, ({ status, hash }) => {
         txHashRef.current = hash
         // Only update to FAILED here — SUCCESS is set below after refresh
@@ -85,8 +78,6 @@ export function usePoll(address, signTx) {
           setTxStatus({ status: TxStatus.PENDING, hash })
         }
       })
-
-      // 4. Vote confirmed — update state
       setHasVoted(true)
       setTxStatus({ status: TxStatus.SUCCESS, hash: txHashRef.current })
       await refresh()
@@ -94,10 +85,6 @@ export function usePoll(address, signTx) {
     } catch (err) {
       const msg = err?.message || 'Vote failed'
 
-      // ── Ignore false errors when vote actually succeeded ──────────────────
-      // "Bad union switch: 4" or error code 4 = AlreadyVoted on-chain,
-      // meaning the tx went through but the result was misread.
-      // We detect this by checking if a hash was captured (tx was sent).
       const isAlreadyVoted =
         msg.includes('Bad union switch') ||
         msg.includes('already voted') ||
