@@ -1,10 +1,8 @@
-// src/App.jsx
 import { useState } from 'react'
 import { useWallet, ERROR_MESSAGES, WalletErrorType } from './hooks/useWallet'
 import { usePoll, TxStatus } from './hooks/usePoll'
 import './index.css'
 
-// ── Helpers ───────────────────────────────────────────────────────────────────
 function shortAddr(addr) {
   if (!addr) return ''
   return addr.slice(0, 4) + '…' + addr.slice(-4)
@@ -15,8 +13,6 @@ function pct(a, b) {
   if (total === 0) return [50, 50]
   return [Math.round((a / total) * 100), Math.round((b / total) * 100)]
 }
-
-// ── Sub-components ────────────────────────────────────────────────────────────
 
 function TxBadge({ txStatus }) {
   if (txStatus.status === TxStatus.IDLE) return null
@@ -86,7 +82,6 @@ function VoteBar({ label, votes, pctVal, option, onVote, disabled, winner }) {
   )
 }
 
-// ── Main App ──────────────────────────────────────────────────────────────────
 export default function App() {
   const { address, loading: walletLoading, error: walletError, connect, signTx, disconnect, clearError, isConnected } = useWallet()
   const { poll, hasVoted, txStatus, loading: pollLoading, voteError, newVoteFlash, vote } = usePoll(address, signTx)
